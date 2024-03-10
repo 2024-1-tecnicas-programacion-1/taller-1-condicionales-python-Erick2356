@@ -13,11 +13,26 @@ from src.annos_bisiestos import evaluar
 
 class TestLetraONumero(unittest.TestCase):
     def test_es_numero(self):
-        valor_esperado = "Es número"
+        valor_esperado = " Es número"
         valor_actual = evaluar('c')
         self.assertEqual(valor_esperado, valor_actual)
+
+        def test_es_letraM(self):
+            valor_esperado = " Es letra mayúscula"
+        valor_actual = evaluar('A')
+        self.assertEqual(valor_esperado, valor_actual)
+
+        def test_es_letram(self):
+            valor_esperado = " Es letra minúscula"
+        valor_actual = evaluar('a')
+        self.assertEqual(valor_esperado, valor_actual)
+
+        def test_no_es(self):
+            valor_esperado = " No es letra ni número"
+        valor_actual = evaluar('=')
+        self.assertEqual(valor_esperado, valor_actual)
     
-    # TODO: Agrega tus otros casos de prueba aquí
+    
     
 
 if __name__ == '__main__':
