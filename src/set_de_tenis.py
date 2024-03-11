@@ -1,17 +1,17 @@
 def evaluar(num_victorias_a, num_victorias_b):
-    if num_victorias_a> num_victorias_b+2 | num_victorias_b> num_victorias_a+2 & num_victorias_a>= 6 | num_victorias_b>=6:
-        print ("El juego ha terminado")
-    elif num_victorias_a<6 | num_victorias_b<6:
-        print ("El juego aún no ha termiado")
-    elif num_victorias_a<0 | num_victorias_a>7 | num_victorias_b<0 | num_victorias_b<7:
-        print ("El valor es invalido")
+    if num_victorias_a < 0 or num_victorias_a > 7 or num_victorias_b < 0 or num_victorias_b > 7:
+        return "El valor es inválido"
+    elif num_victorias_a >= 6 and num_victorias_a - num_victorias_b >= 2:
+        return "Ganó A"
+    elif num_victorias_b >= 6 and num_victorias_b - num_victorias_a >= 2:
+        return "Ganó B"
+    else:
+        return "El juego aún no ha terminado"
     
-    return ""
-
 if __name__ == '__main__':
-    print("Los juegos ganaddor por A:", end="")
+    print("Los juegos ganados por A:", end="")
     num_victorias_a = int(input())
-    print("Los juegos ganaddor por B:", end="")
+    print("Los juegos ganados por B:", end="")
     num_victorias_b = int(input())
 
     respuesta = evaluar(num_victorias_a, num_victorias_b)
